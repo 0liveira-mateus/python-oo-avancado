@@ -33,6 +33,11 @@ print('Filme: Nome: {}, ano: {}, duração: {}, likes: {}'.format(vingadores.nom
 #----------------------------------------------------------------------------------------------------------------------
 atlanta = Serie('atlanta', 2020, 2)
 atlanta.dar_likes()
-print('Série: Nome: {}, ano: {}, temporadas: {}, likes: {}'.format(atlanta.nome, atlanta.ano, atlanta.temporadas, atlanta.like))
+atlanta.dar_likes()
 
 
+Filmes_e_Series = [vingadores, atlanta]
+
+for programas in Filmes_e_Series:
+    detalhes = programas.duracao if hasattr(programas, 'duracao') else programas.temporadas
+    print('Nome: {}, Likes: {}, Detalhes: {}'.format(programas.nome,programas.like, detalhes))
