@@ -19,8 +19,8 @@ class Filme(Programacao):
     def duracao(self):
         return self._duracao
 
-    def imprimir(self):
-        print('Nome do Filme: {}, Duração : {} '.format(self.nome, self.duracao))
+    def __str__(self):
+        return 'Nome do Filme: {}, Duração : {} '.format(self.nome, self.duracao)
 
 class Serie(Programacao):
     def __init__(self, nome, temporadas):
@@ -29,8 +29,8 @@ class Serie(Programacao):
     @property
     def temporadas(self):
         return self._temporadas
-    def imprimir(self):
-        print('Nome da Serie: {}, Temporadas : {} '.format(self.nome, self.temporadas))
+    def __str__(self):
+        return 'Nome da Serie: {}, Temporadas : {} '.format(self.nome, self.temporadas)
 
 
 
@@ -47,4 +47,4 @@ print('---------------------------------------')
 Conteudo_FOX = [Guerra_dos_mundos, TWD]
 
 for conteudo in Conteudo_FOX:
-    conteudo.imprimir()
+    print(conteudo)
