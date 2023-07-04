@@ -1,10 +1,3 @@
-class Playlist:
-    def __init__(self, nome, programas):
-        self.nome = nome
-        self.programas = programas
-
-
-
 class Programacao:
     def __init__(self, nome):
         self._nome = nome
@@ -17,7 +10,6 @@ class Programacao:
         return self._likes
     def dar_likes(self):
         self._likes += 1
-
 
 class Filme(Programacao):
     def __init__(self, nome, duracao):
@@ -40,6 +32,10 @@ class Serie(Programacao):
     def __str__(self):
         return 'Nome da Serie: {}, Temporadas : {} '.format(self.nome, self.temporadas)
 
+class Playlist(list):
+    def __init__(self, nome, programas):
+        self.nome = nome
+        super().__init__(programas)
 
 
 Guerra_dos_mundos = Filme('Guerra Dos Mundos 1', '1h 56m' )
@@ -52,12 +48,16 @@ Avatar.dar_likes()
 PrisionBreak.dar_likes()
 
 
+playlist_fim_de_semana = Playlist('Playlist para o fim de semana', [Guerra_dos_mundos, TWD,PrisionBreak, Avatar])
+playlist_series = [PrisionBreak, TWD]
+
 
 print('---------------------------------------')
 
-Conteudo_FOX = [Guerra_dos_mundos, TWD,PrisionBreak, Avatar]
-
-playlist_fim_de_semana = Playlist('Playlist para o fim de semana', Conteudo_FOX)
-
-for programacao in playlist_fim_de_semana.programas:
+for programacao in playlist_fim_de_semana:
     print(programacao)
+
+print('---------------------------------------')
+
+for series in playlist_series:
+    print(series)
