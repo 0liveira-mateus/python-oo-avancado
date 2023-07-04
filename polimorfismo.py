@@ -19,6 +19,9 @@ class Filme(Programacao):
     def duracao(self):
         return self._duracao
 
+    def imprimir(self):
+        print('Nome do Filme: {}, Duração : {} '.format(self.nome, self.duracao))
+
 class Serie(Programacao):
     def __init__(self, nome, temporadas):
         super().__init__(nome)
@@ -26,6 +29,8 @@ class Serie(Programacao):
     @property
     def temporadas(self):
         return self._temporadas
+    def imprimir(self):
+        print('Nome da Serie: {}, Temporadas : {} '.format(self.nome, self.temporadas))
 
 
 
@@ -38,8 +43,8 @@ TWD.dar_likes()
 
 
 print('---------------------------------------')
+
 Conteudo_FOX = [Guerra_dos_mundos, TWD]
 
 for conteudo in Conteudo_FOX:
-    detalhes = conteudo.temporadas if hasattr(conteudo, 'temporadas') else conteudo.duracao
-    print('Nome: {}, Likes: {}, Detalhes: {}'.format(conteudo.nome, conteudo.likes, detalhes))
+    conteudo.imprimir()
