@@ -34,12 +34,19 @@ class Serie(Programacao):
 
 class Playlist:
     def __init__(self, nome, programas):
-        self.nome = nome
-        self.programas = programas
+        self._nome = nome
+        self._programas = programas
+
+    def __getitem__(self, item):
+        return self._programas[item]
+    @property
     def listagem(self):
-        return self.programas
+        return self._programas
+    @property
     def tamanho(self):
-        return len(self.programas)
+        return len(self._programas)
+
+
 
 
 
@@ -61,5 +68,9 @@ playlist_fim_de_semana = Playlist('Playlist para o fim de semana', [Guerra_dos_m
 
 print('---------------------------------------')
 
-for programacao in playlist_fim_de_semana.programas:
+print('Tamanho do playlist = {}'.format(len(playlist_fim_de_semana)))
+
+for programacao in playlist_fim_de_semana:
     print(programacao)
+
+print(Guerra_dos_mundos in playlist_fim_de_semana)
