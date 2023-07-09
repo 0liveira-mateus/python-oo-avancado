@@ -40,12 +40,17 @@ class Playlist:
     def listagem(self):
         return self.__programas
 
+    def __len__(self):
+        return len(self.__programas)
+
 
 Vingadores = Filme('Guerra infinita', 2018, '1h40m')
 Avatar_2 = Filme('Avatar 2', 2018, '2h50m')
 
 Lista1 = [Vingadores, Avatar_2]
 Fim_De_Semana = Playlist('Fim de Semana', Lista1)
+
+print(f'Tamanho da Lista: {len(Fim_De_Semana.listagem())}')
 
 for Filmes in Fim_De_Semana:
     print(Filmes)
