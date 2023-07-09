@@ -20,7 +20,7 @@ class Filmes(Programas):
     def duracao(self):
         return self._duracao
     def __str__(self):
-        return f'O filme {self.nome}, lançado em {self.lancamento} tem duração de {self.duracao}'
+        return f'O filme {self.nome}, lançado(a) em {self.lancamento} tem duração de {self.duracao}'
 class Series(Programas):
     def __init__(self, nome, lancamento, temporadas):
         super().__init__(nome, lancamento, 0)
@@ -29,7 +29,7 @@ class Series(Programas):
     def temporadas(self):
         return self.__temporadas
     def __str__(self):
-        return f'A serie {self.nome}, lançada em {self.lancamento} tem {self.temporadas} temporadas'
+        return f'A serie {self.nome}, lançado(a) em {self.lancamento} tem {self.temporadas} temporadas'
 
 Vingadores = Filmes('Guerra Infinta', 2018, '2h30m')
 
